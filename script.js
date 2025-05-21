@@ -158,4 +158,54 @@ productsGrid.addEventListener('mousemove', (e) => {
   const x = e.pageX - productsGrid.offsetLeft;
   const walk = (x - startX) * 2;
   productsGrid.scrollLeft = scrollLeft - walk;
+});
+
+// Product Showcase Manual Scrolling
+const showcaseTrack = document.querySelector('.showcase-track');
+let showcaseIsDown = false;
+let showcaseStartX;
+let showcaseScrollLeft;
+
+showcaseTrack.addEventListener('mousedown', (e) => {
+  showcaseIsDown = true;
+  showcaseTrack.style.cursor = 'grabbing';
+  showcaseStartX = e.pageX - showcaseTrack.offsetLeft;
+  showcaseScrollLeft = showcaseTrack.scrollLeft;
+});
+
+showcaseTrack.addEventListener('mouseleave', () => {
+  showcaseIsDown = false;
+  showcaseTrack.style.cursor = 'grab';
+});
+
+showcaseTrack.addEventListener('mouseup', () => {
+  showcaseIsDown = false;
+  showcaseTrack.style.cursor = 'grab';
+});
+
+showcaseTrack.addEventListener('mousemove', (e) => {
+  if (!showcaseIsDown) return;
+  e.preventDefault();
+  const x = e.pageX - showcaseTrack.offsetLeft;
+  const walk = (x - showcaseStartX) * 2;
+  showcaseTrack.scrollLeft = showcaseScrollLeft - walk;
+});
+
+// Touch events for mobile
+showcaseTrack.addEventListener('touchstart', (e) => {
+  showcaseIsDown = true;
+  showcaseStartX = e.touches[0].pageX - showcaseTrack.offsetLeft;
+  showcaseScrollLeft = showcaseTrack.scrollLeft;
+});
+
+showcaseTrack.addEventListener('touchend', () => {
+  showcaseIsDown = false;
+});
+
+showcaseTrack.addEventListener('touchmove', (e) => {
+  if (!showcaseIsDown) return;
+  e.preventDefault();
+  const x = e.touches[0].pageX - showcaseTrack.offsetLeft;
+  const walk = (x - showcaseStartX) * 2;
+  showcaseTrack.scrollLeft = showcaseScrollLeft - walk;
 }); 
