@@ -1,4 +1,13 @@
 User-agent: *
-Disallow:
+Allow: /
+Allow: /sitemap.xml
+Allow: /index.html
+Allow: /products/
+Allow: /about/
+Allow: /contact/
 
-Sitemap: https://www.jaydeep-industries.com/sitemap.xml
+# Optimize crawl rate
+Crawl-delay: 10
+
+# Sitemap location
+Sitemap: https://www.jaydeep-industries.com/sitemap.xml 

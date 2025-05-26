@@ -2116,4 +2116,80 @@ textarea {
       transform: translateX(calc(-120px * 8 - 1rem * 8));
     }
   }
+}
+
+/* Blog Modal Styles */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1000; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 10% auto; /* 10% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+  max-width: 600px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.close-button {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+  color: #000;
+  text-decoration: none;
+}
+
+.blog-list {
+  list-style: none;
+  padding: 0;
+}
+
+.blog-item {
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.blog-item:last-child {
+  border-bottom: none;
+}
+
+.blog-item h2 a {
+  color: var(--green); /* Use your theme's color */
+  text-decoration: none;
+  font-size: 1.2em;
+}
+
+.blog-item h2 a:hover {
+  text-decoration: underline;
+}
+
+.blog-item p {
+  color: #555;
+  font-size: 0.9em;
+  margin-top: 5px;
+}
+
+@media (max-width: 768px) {
+  .modal-content {
+    width: 90%;
+    margin: 20% auto; /* Adjust margin for smaller screens */
+  }
 } 

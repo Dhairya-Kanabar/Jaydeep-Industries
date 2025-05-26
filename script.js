@@ -208,4 +208,29 @@ showcaseTrack.addEventListener('touchmove', (e) => {
   const x = e.touches[0].pageX - showcaseTrack.offsetLeft;
   const walk = (x - showcaseStartX) * 2;
   showcaseTrack.scrollLeft = showcaseScrollLeft - walk;
+});
+
+// Blog Modal Functionality
+document.addEventListener('DOMContentLoaded', () => {
+    const blogLink = document.getElementById('blog-link');
+    const blogModal = document.getElementById('blog-modal');
+    const closeButton = blogModal.querySelector('.close-button');
+
+    // Open the modal when the blog link is clicked
+    blogLink.addEventListener('click', (e) => {
+        e.preventDefault(); // Prevent default link behavior
+        blogModal.style.display = 'block';
+    });
+
+    // Close the modal when the close button is clicked
+    closeButton.addEventListener('click', () => {
+        blogModal.style.display = 'none';
+    });
+
+    // Close the modal when clicking outside of the modal content
+    window.addEventListener('click', (e) => {
+        if (e.target === blogModal) {
+            blogModal.style.display = 'none';
+        }
+    });
 }); 
